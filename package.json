@@ -1,21 +1,27 @@
 {
-  "name": "cxsd",
+  "name": "@icell/cxsd",
   "version": "0.1.1",
-  "description": "Streaming XSD parser and XML parser generator with TypeScript output",
+  "description": "Streaming XSD parser and XML parser generator with TypeScript output (modified by i-Cell)",
   "bin": {
     "cxsd": "cxsd-cli.js"
   },
   "scripts": {
     "tsc": "tsc",
     "typings": "typings",
-    "prepublish": "typings install && tsc",
+    "prepublishOnly": "typings install && tsc",
     "test": "node cxsd-cli.js --help"
   },
   "author": "Juha Järvi",
+  "contributors": [
+      "Nagy Gábor"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/charto/cxsd.git"
+  },
+  "publishConfig": {
+      "registry": "https://nexus.icellmobilsoft.hu/repository/angular4_npm/"
   },
   "bugs": {
     "url": "https://github.com/charto/cxsd/issues"
@@ -33,7 +39,7 @@
     "bluebird": "^3.4.1",
     "cget": "~0.0.5",
     "commander": "~2.9.0",
-    "cxml": "~0.1.0",
+    "cxml": "0.1.0",
     "node-expat": "~2.3.15"
   },
   "devDependencies": {

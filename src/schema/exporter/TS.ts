@@ -78,14 +78,20 @@ export class TS extends Exporter {
 		var name = namePrefix + type.safeName;
 
 		if(!namespace || namespace == this.namespace) {
-			output.push(name);
+			output.push(namePrefix + type.safeName);
 		} else {
 			// Type from another, imported namespace.
 
 			var short = this.namespace.getShortRef(namespace.id);
 
 			if(short) {
-				output.push(short + '.' + name);
+                output.push(short + '.');
+
+                if (short === 'Primitive') {
+                    output.push(namePrefix);
+                }
+
+				output.push(type.safeName);
 			} else {
 				console.error('MISSING IMPORT ' + namespace.name + ' for type ' + type.name);
 				output.push('any');
