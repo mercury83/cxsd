@@ -306,8 +306,8 @@ export class TS extends Exporter {
 		this.writeAugmentations(output);
 
 		output.push('interface ' + baseName + ' {');
-		output.push('\t_exists: boolean;');
-		output.push('\t_namespace: string;');
+		output.push('\t_exists?: boolean;');
+		output.push('\t_namespace?: string;');
 		output.push('}');
 
 		for(var type of namespace.typeList.slice(0).sort((a: Type, b: Type) => a.safeName.localeCompare(b.safeName))) {
